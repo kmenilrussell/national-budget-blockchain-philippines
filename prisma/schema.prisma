@@ -1,0 +1,164 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// User model for system authentication and authorization
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String?
+  role      UserRole @default(CITIZEN)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  // Relations
+  accounts Account[]
+  
+  @@map("users")
+}
+
+// Account model representing government agencies or departments
+model Account {
+  id        String   @id @default(cuid())
+  address   String   @unique // Blockchain address
+  name      String   // Agency/Department name
+  type      AccountType
+  nonce     Int      @default(0) // For replay protection
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  // Relations
+  userId    String?
+  user      User?    @relation(fields: [userId], references: [id])
+  
+  sentTransactions   Transaction[] @relation("SentTransactions")
+  receivedTransactions Transaction[] @relation("ReceivedTransactions")
+  dpas               DPA[]
+  
+  @@map("accounts")
+}
+
+// Validator model for authorized block-producing nodes
+model Validator {
+  id          String   @id @default(cuid())
+  name        String   // Validator name (e.g., DICT, DBM, COA)
+  publicKey   String   // Public key for signature verification
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  // Relations
+  blocks      Block[]
+  
+  @@map("validators")
+}
+
+// Block model representing blockchain blocks
+model Block {
+  id          String   @id @default(cuid())
+  height      Int      @unique // Block number
+  hash        String   @unique // Block hash
+  prevHash    String   // Previous block hash
+  merkleRoot  String   // Merkle root of transactions
+  timestamp   DateTime
+  proposerId  String   // Validator who proposed this block
+  signature   String?  // Block signature
+  
+  // Relations
+  proposer    Validator @relation(fields: [proposerId], references: [id])
+  transactions Transaction[]
+  
+  @@map("blocks")
+}
+
+// Transaction model for budget allocations and transfers
+model Transaction {
+  id          String           @id @default(cuid())
+  txId        String           @unique // Transaction ID
+  type        TransactionType
+  senderId    String?          // Sender account ID
+  recipientId String           // Recipient account ID
+  amount      Float            // Transaction amount
+  nonce       Int              // Sender's nonce
+  data        String?          // Additional metadata (JSON)
+  status      TransactionStatus @default(PENDING)
+  timestamp   DateTime         @default(now())
+  
+  // Relations
+  sender      Account?         @relation("SentTransactions", fields: [senderId], references: [id])
+  recipient   Account          @relation("ReceivedTransactions", fields: [recipientId], references: [id])
+  blockId     String?
+  block       Block?           @relation(fields: [blockId], references: [id])
+  
+  @@map("transactions")
+}
+
+// Digital Public Asset (DPA) model for budget allocations
+model DPA {
+  id          String   @id @default(cuid())
+  name        String   // DPA name/description
+  code        String   @unique // Budget code
+  amount      Float    // Allocated amount
+  spent       Float    @default(0) // Amount spent
+  accountId   String   // Owning account
+  projectId   String?  // Associated project ID
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  // Relations
+  account     Account  @relation(fields: [accountId], references: [id])
+  
+  @@map("dpas")
+}
+
+// Audit Log model for tracking system events
+model AuditLog {
+  id          String   @id @default(cuid())
+  eventType   String   // Type of event
+  description String   // Event description
+  metadata    String?  // Additional metadata (JSON)
+  timestamp   DateTime @default(now())
+  
+  @@map("audit_logs")
+}
+
+// Enums
+enum UserRole {
+  ADMIN
+  VALIDATOR
+  AUDITOR
+  AGENCY_USER
+  CITIZEN
+}
+
+enum AccountType {
+  GOVERNMENT_AGENCY
+  DEPARTMENT
+  CONTRACTOR
+  PROJECT
+  CITIZEN
+}
+
+enum TransactionType {
+  ISSUE     // Issuance of new budget allocation
+  TRANSFER  // Transfer between accounts
+  SPEND     // Spending of allocated funds
+}
+
+enum TransactionStatus {
+  PENDING
+  CONFIRMED
+  REJECTED
+}
