@@ -1,6 +1,6 @@
-# National Budget Blockchain (NBB) MVP
+# National Budget Blockchain (NBB) 
 
-A permissioned, auditable blockchain system for Philippine government budget transparency—making every peso traceable, immutable, and accessible in real time.
+A auditable blockchain system for Philippine government budget transparency—making every peso traceable, immutable, and accessible in real time.
 
 ---
 
