@@ -86,56 +86,59 @@ uvicorn api.server:app --reload
 cd ../frontend
 npm install
 npm run dev  # http://localhost:3000
----
 
 
-## 6.  Usage Overview
+6. Usage Overview
 
-* **Dashboard**: Live view of blockchain health, transactions, and validator status.
-* **Management Tools**: Department and transaction controls.
-* **Explorer**: Merkle proof-enabled block browsing.
-* **OTC Module**: Optional trading interface for DPAs.
-* **FOI & Audit Export**: Download signed data for public scrutiny.
-* **Live Updates**: Real-time feeds via WebSockets.
+Dashboard: Live view of blockchain health, transactions, and validator status.
 
----
+Management Tools: Department and transaction controls.
 
-## 7.  Deployment Roadmap
+Explorer: Merkle-proof-enabled block browsing.
 
-* **Development**: Docker Compose for local stacks (backend, frontend, DB, Vault, monitoring).
-* **Production**: Kubernetes + Helm, managed Postgres, Vault, HTTPS (TLS with PNPKI certs).
+OTC Module: Optional trading interface for DPAs.
 
----
+FOI & Audit Export: Download signed data for public scrutiny.
 
-## 8.  Governance & Compliance
+Live Updates: Real-time feeds via WebSockets.
 
-* **PNPKI** for validator auth and secure transport.
-* **Tamper-proof Logs**: Hash-chained audit entries anchored on-chain.
-* **Selective Privacy**: Public transparency + auditor see-through via ZK proofs.
-* **Public Policy Alignment**: Built for FOI compliance; designed for integration with agencies like COA, DBM, and PhilGEPS.
+7. Deployment Roadmap
 
----
+Development: Docker Compose for local stacks (backend, frontend, DB, Vault, monitoring).
 
-## 9.  Next Milestones
+Production: Kubernetes + Helm, managed Postgres, Vault, HTTPS (TLS with PNPKI certs).
 
-* Optimize zk proof generation and verification.
-* Integrate with national systems (PhilGEPS, DBM workflows).
-* Pursue third-party and COA audit validation.
-* Launch public portal and community engagement (civic hackathons, open forums).
+8. Governance & Compliance
 
----
+PNPKI for validator authentication and secure transport.
 
-## 10.  Related News & Context
+Tamper-proof Logs: Hash-chained audit entries anchored on-chain.
 
-* [Reuters](https://www.reuters.com/world/asia-pacific/philippine-groups-demand-independent-investigation-excessive-corruption-2025-09-04/?utm_source=chatgpt.com)
-* [AP News](https://apnews.com/article/61deba5e59f9bc5fac1800a660591c35?utm_source=chatgpt.com)
-* [AP News](https://apnews.com/article/4f032763731802d4b625d39e3a1bd1cc?utm_source=chatgpt.com)
+Selective Privacy: Public transparency with auditor access via zero-knowledge proofs.
 
----
+Policy Alignment: Built for FOI compliance and integration with COA, DBM, PhilGEPS, and other oversight bodies.
 
-## 11.  Summary
+9. Next Milestones
 
-A pioneering system for ensuring **ever peso—accounted, verifiable, unerasable**—the NBB MVP is a civic-first blockchain project aimed at restoring public trust, democratizing access, and anchoring fiscal integrity in technology.
+Optimize zero-knowledge proof generation and verification for performance.
 
----
+Integrate with national systems like PhilGEPS and DBM workflows.
 
+Pursue third-party audits and COA validation.
+
+Launch the public portal and community engagement programs (e.g., civic tech hackathons).
+
+10. Related News & Context
+
+AP News: Two Philippine senators are implicated in a major flood-control corruption scandal, triggering public outrage and an independent commission. The government review follows ₱545B in flood control spending over the last three years. 
+AP News
+
+Reuters: Business and civic groups are demanding an independent probe into “excessive corruption” tied to flood-control projects—where ₱545B was spent and only 15 contractors received 20% of the funds. 
+Reuters
+
+AP News: Congress and the President have launched investigations into potential fraud in flood-control infrastructure projects, with both bodies holding televised hearings. 
+AP News
+
+11. Summary
+
+A pioneering system ensuring every peso—accounted, verifiable, immutable. The NBB MVP is a civic-first blockchain initiative designed to restore public trust, enable citizen oversight, and embed fiscal integrity through technology.
