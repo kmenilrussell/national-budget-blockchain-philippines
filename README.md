@@ -10,9 +10,9 @@ A auditable blockchain system for Philippine government budget transparency—ma
 
 Recent investigations revealed serious corruption in flood-control infrastructure spending in the Philippines:
 
-- An audit found ₱545 billion (US$9.6B) allocated between 2022–2025 was marred by **substandard, undocumented, or non-existent projects**. Only **15 contractors received 20%** of the budget.:contentReference[oaicite:0]{index=0}  
-- Contractors testified to paying **25–30% kickbacks** to legislators and officials.:contentReference[oaicite:1]{index=1}  
-- Public outrage prompted President Marcos to convene an **independent commission** for investigation and suspend bidding.:contentReference[oaicite:2]{index=2}
+- An audit found ₱545 billion (US$9.6B) allocated between 2022–2025 was marred by **substandard, undocumented, or non-existent projects**. Only **15 contractors received 20%** of the budget.
+- Contractors testified to paying **25–30% kickbacks** to legislators and officials.
+- Public outrage prompted President Marcos to convene an **independent commission** for investigation and suspend bidding.
 
 These crises fueled public distrust and underscored the urgent need for systemic transparency.
 
@@ -20,9 +20,9 @@ These crises fueled public distrust and underscored the urgent need for systemic
 
 ## 2.  Legislative Spark: The Blockchain the Budget Bill
 
-- **Senate Bill No. 1330**—the "Blockchain the Budget Bill" by Sen. Bam Aquino—proposes a **National Budget Blockchain System**, where every peso becomes a **Digital Public Asset (DPA)**. Citizens, COA, and civil society can audit government spending in real time.:contentReference[oaicite:3]{index=3}
+- **Senate Bill No. 1330**—the "Blockchain the Budget Bill" by Sen. Bam Aquino—proposes a **National Budget Blockchain System**, where every peso becomes a **Digital Public Asset (DPA)**. Citizens, COA, and civil society can audit government spending in real time.
 
-If enacted, the system would be managed by DICT in coordination with DBM and COA, modernizing government transparency.:contentReference[oaicite:4]{index=4}
+If enacted, the system would be managed by DICT in coordination with DBM and COA, modernizing government transparency.
 
 ---
 
