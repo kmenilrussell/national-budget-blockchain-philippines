@@ -82,7 +82,7 @@ cd frontend
 npm install
 npm run dev  # Access at http://localhost:3000
 
-
+---
 
 5. Usage Snapshot
 
@@ -100,6 +100,8 @@ FOI / Audit Export: Download signed output for public and auditor use.
 
 Real-Time Updates: Live data sync via WebSockets.
 
+---
+
 6. Deployment Path
 
 Development: Use Docker Compose (backend, frontend, Postgres, Vault, Prometheus, Grafana).
@@ -111,6 +113,8 @@ Deploy backend & frontend in Kubernetes with Helm.
 Use managed DB (Postgres) and secrets (HashiCorp Vault).
 
 Host over HTTPS, with mutually authenticated TLS for validator communications (using PNPKI where available).
+
+---
 
 7. Governance & Compliance
 
@@ -124,6 +128,8 @@ Policy Integration: Designed to integrate with PhilGEPS, eNGAS, COA, DBM, and sy
 
 Aligns with Philippine FOI Act, legal retention mandates, and government security standards.
 
+---
+
 8. Next Milestones
 
 Optimize zk proof performance via batching or improved libraries.
@@ -134,12 +140,18 @@ Conduct third-party security audits and COA validation.
 
 Launch public-facing portal and engage civil society via hackathons.
 
+---
+
 9. News & Context
 Related News
 
 https://apnews.com/article/philippines-flood-control-corruption-allegations-61deba5e59f9bc5fac1800a660591c35
 https://www.reuters.com/world/asia-pacific/philippine-groups-demand-independent-investigation-excessive-corruption-2025-09-04/?utm_source=chatgpt.com
 
+---
+
 10. Summary
 
 A blockchain-based budget ledger for the Philippines—built to restore trust, empower oversight, and ensure fiscal accountability. Citizens, auditors, and departments alike gain a secure, transparent, and auditable system—so every peso, every peso counts.
+
+---
