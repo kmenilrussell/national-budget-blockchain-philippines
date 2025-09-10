@@ -82,6 +82,8 @@ cd frontend
 npm install
 npm run dev  # Access at http://localhost:3000
 
+
+
 5. Usage Snapshot
 
 Dashboard: Real-time overview of blocks, transactions, and validator status.
