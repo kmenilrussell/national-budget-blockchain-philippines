@@ -86,10 +86,8 @@ uvicorn api.server:app --reload
 cd ../frontend
 npm install
 npm run dev  # http://localhost:3000
-
-
 ---
----
+
 
 ## 6.  Usage Overview
 
