@@ -1,11 +1,6 @@
-Here’s a polished **README.md** for the **National Budget Blockchain (NBB) MVP**, structured from top to bottom and enriched with news context, motivation, installation, usage, and your professional credential—not forgetting the faith in blockchain and transparency.
-
----
-
-````markdown
 # National Budget Blockchain (NBB) MVP
 
-A permissioned, auditable blockchain system for Philippine government budget transparency, designed to make every peso traceable, immutable, and accessible in real time.
+A permissioned, auditable blockchain system for Philippine government budget transparency—making every peso traceable, immutable, and accessible in real time.
 
 ---
 
@@ -13,57 +8,62 @@ A permissioned, auditable blockchain system for Philippine government budget tra
 
 ### Why This Project Exists
 
-The Philippines is currently facing widespread corruption in government infrastructure spending—especially in **flood control projects**. A mass of investigative findings reveal:
+Recent investigations revealed serious corruption in flood-control infrastructure spending in the Philippines:
 
-- **545 billion PHP** was allocated since 2022, with many projects **substandard, undocumented, or non-existent**, and only **15 contractors receiving 20%** of the funds.:contentReference[oaicite:0]{index=0}  
-- At least **17 members of Congress and DPWH officials** have been implicated in allegations of **25–30% kickbacks**, based on sworn testimony.:contentReference[oaicite:1]{index=1}  
-- These revelations spurred public outrage and government reform, including establishment of independent commissions and suspension of new project biddings.:contentReference[oaicite:2]{index=2}
+- An audit found ₱545 billion (US$9.6B) allocated between 2022–2025 was marred by **substandard, undocumented, or non-existent projects**. Only **15 contractors received 20%** of the budget.:contentReference[oaicite:0]{index=0}  
+- Contractors testified to paying **25–30% kickbacks** to legislators and officials.:contentReference[oaicite:1]{index=1}  
+- Public outrage prompted President Marcos to convene an **independent commission** for investigation and suspend bidding.:contentReference[oaicite:2]{index=2}
 
-In response, **Senate Bill No. 1330 ("Blockchain the Budget Bill")**, authored by **Sen. Bam Aquino**, proposes placing the entire **national budget on a blockchain**—making every peso **traceable, auditable, and publicly accessible**. This would position the Philippines as a global leader in civic-tech governance.:contentReference[oaicite:3]{index=3}
-
----
-
-## 2.  Project Overview
-
-The NBB MVP prototype includes:
-
-- **Blockchain Core**: PoA consensus with rotating validators, SHA-256 hashing, and Merkle trees.
-- **Digital Public Assets (DPAs)**: All budget allocations and transfers are tracked as immutable assets.
-- **Privacy**: zkLedger-style zero-knowledge proofs to hide sensitive amounts from the public, yet auditable by authorized parties.
-- **Web API (FastAPI)** with endpoints for:
-  - Blocks, Accounts, DPAs, Merkle proofs  
-  - Audit/FOI data export (CSV/JSONL, digitally signed)  
-  - Real-time metrics (Prometheus)
-- **Frontend Dashboard**: Explorer, department & transaction management, OTC trading, real-time updates (polling/WebSockets), full accessibility (WCAG 2.0 AA), and localization (EN/PH).
-- **Security & Compliance**: JWT + RBAC auth, Vault-managed secrets, TLS/mTLS, append-only audit logs with on-chain anchoring, and legal retention (WORM).
+These crises fueled public distrust and underscored the urgent need for systemic transparency.
 
 ---
 
-## 3.  Author Credentials
+## 2.  Legislative Spark: The Blockchain the Budget Bill
 
-This project is developed by **Karl Russell Sumando Menil**, holder of a **Professional Certificate in Full Stack Development (MERN)** from **MIT xPRO / Emeritus**, which is **secured by blockchain**:
+- **Senate Bill No. 1330**—the "Blockchain the Budget Bill" by Sen. Bam Aquino—proposes a **National Budget Blockchain System**, where every peso becomes a **Digital Public Asset (DPA)**. Citizens, COA, and civil society can audit government spending in real time.:contentReference[oaicite:3]{index=3}
 
-- **Credential Issued On**: November 12, 2021  
-- **Blockchain Record Created On**: December 20, 2021  
-- **Blockchain ID**: `714905`
-
-This certificate demonstrates verified expertise in full-stack engineering and reinforces the credibility of the system’s trustless architecture.
+If enacted, the system would be managed by DICT in coordination with DBM and COA, modernizing government transparency.:contentReference[oaicite:4]{index=4}
 
 ---
 
-## 4.  Installation & Setup
+## 3.  Project Overview
+
+This MVP features:
+
+- **Blockchain Core**: PoA consensus, SHA-256 hashing, Merkle roots.
+- **DPAs**: Budget allocation as transparent, immutable digital assets.
+- **Privacy Layer**: zkLedger-inspired zero-knowledge proofs for sensitive data.
+- **APIs (FastAPI)**: Access to blocks, accounts, DPAs, Merkle proofs, audit/FOI exports, and real-time metrics.
+- **Frontend**: Dashboard, exploration tools, department/transaction management, OTC trading, real-time updates, i18n (EN/PH), and accessibility (WCAG 2.0 AA).
+- **Security & Compliance**: JWT + RBAC auth, Vault-managed secrets, TLS/mTLS, append-only audit logs anchored on-chain.
+
+---
+
+## 4.  Author Credentials
+
+Created by **Karl Russell Sumando Menil**, holder of a **Professional Certificate in Full Stack Development (MERN)** from **MIT xPRO / Emeritus**, secured on the blockchain:
+
+- **Issued:** November 12, 2021  
+- **Blockchain Anchor:** December 20, 2021  
+- **Blockchain ID:** `714905`
+
+This credential underscores verified expertise in software design and system architecture practices.
+
+---
+
+## 5.  Installation & Setup
 
 ### Prerequisites
 
-- **Backend**: Python 3.10+, PostgreSQL
-- **Frontend**: Node.js 18+ (npm/yarn)
-- **Optional (for key storage)**: Docker (for local Vault)
-- Planning for production: Docker Compose, Kubernetes, HTTPS with PKI.
+- Backend: Python 3.10+, PostgreSQL
+- Frontend: Node.js 18+
+- Optional: Docker (for Vault)
+- Production: Consider Kubernetes, Helm, and HTTPS with PKI.
 
-### Setup Guide
+### Setup Steps
 
 ```bash
-# Clone repo
+# Pull repository
 git clone <repo-url>
 cd nbb-mvp
 
@@ -72,77 +72,72 @@ cd backend
 python3 -m venv env && source env/bin/activate
 pip install -r requirements.txt
 export DATABASE_URL="postgresql://user:pass@localhost:5432/nbb"
-alembic upgrade head  # or `prisma migrate deploy`
+alembic upgrade head  # or prisma migrate deploy
 
-# Vault (development mode)
+# Run Vault (dev)
 docker run --rm -d -p 8200:8200 -e VAULT_DEV_ROOT_TOKEN_ID="root" vault
 export VAULT_ADDR=http://127.0.0.1:8200
 export VAULT_TOKEN=root
 
-# Run backend API
+# Launch backend
 uvicorn api.server:app --reload
 
 # Frontend setup
-cd frontend
+cd ../frontend
 npm install
-npm run dev  # Access at http://localhost:3000
-````
+npm run dev  # http://localhost:3000
+
+
+---
+---
+
+## 6.  Usage Overview
+
+* **Dashboard**: Live view of blockchain health, transactions, and validator status.
+* **Management Tools**: Department and transaction controls.
+* **Explorer**: Merkle proof-enabled block browsing.
+* **OTC Module**: Optional trading interface for DPAs.
+* **FOI & Audit Export**: Download signed data for public scrutiny.
+* **Live Updates**: Real-time feeds via WebSockets.
 
 ---
 
-## 5.  Usage Snapshot
+## 7.  Deployment Roadmap
 
-* **Dashboard**: Real-time overview of blocks, transactions, and validator status.
-* **Departments**: Manage government agencies, allocate budgets.
-* **Transactions**: Issue, transfer, and record DPAs.
-* **Explorer**: Browse blockchain data with Merkle proof generation.
-* **OTC**: Optional module for trading DPAs in secure bilateral fashion.
-* **FOI / Audit Export**: Download signed output for public and auditor use.
-* **Real-Time Updates**: Live data sync via WebSockets.
+* **Development**: Docker Compose for local stacks (backend, frontend, DB, Vault, monitoring).
+* **Production**: Kubernetes + Helm, managed Postgres, Vault, HTTPS (TLS with PNPKI certs).
 
 ---
 
-## 6.  Deployment Path
+## 8.  Governance & Compliance
 
-* **Development**: Use Docker Compose (backend, frontend, Postgres, Vault, Prometheus, Grafana).
-* **Production**:
-
-  * Deploy backend & frontend in Kubernetes with Helm.
-  * Use managed DB (Postgres) and secrets (HashiCorp Vault).
-  * Host over HTTPS, with mutually authenticated TLS for validator communications (using PNPKI where available).
+* **PNPKI** for validator auth and secure transport.
+* **Tamper-proof Logs**: Hash-chained audit entries anchored on-chain.
+* **Selective Privacy**: Public transparency + auditor see-through via ZK proofs.
+* **Public Policy Alignment**: Built for FOI compliance; designed for integration with agencies like COA, DBM, and PhilGEPS.
 
 ---
 
-## 7.  Governance & Compliance
+## 9.  Next Milestones
 
-* Supports **PNPKI** for issuing/validator identity and transport-level authentication.
-* **Log Auditing**: Append-only logs, chained with content hashes; periodic on-chain anchoring ensures tamper evidence.
-* **Privacy & Access**: Confidential DPA amounts hidden, yet verifiable by auditors via ZK proofs.
-* **Policy Integration**: Designed to integrate with **PhilGEPS**, **eNGAS**, **COA**, **DBM**, and system-of-record platforms.
-* Aligns with **Philippine FOI Act**, legal retention mandates, and government security standards.
-
----
-
-## 8.  Next Milestones
-
-* Optimize zk proof performance via batching or improved libraries.
-* Expand API for integrations (PhilGEPS, DBM, etc.).
-* Conduct third-party security audits and COA validation.
-* Launch public-facing portal and engage civil society via hackathons.
+* Optimize zk proof generation and verification.
+* Integrate with national systems (PhilGEPS, DBM workflows).
+* Pursue third-party and COA audit validation.
+* Launch public portal and community engagement (civic hackathons, open forums).
 
 ---
 
-## 9.  News & Context
+## 10.  Related News & Context
 
 * [Reuters](https://www.reuters.com/world/asia-pacific/philippine-groups-demand-independent-investigation-excessive-corruption-2025-09-04/?utm_source=chatgpt.com)
 * [AP News](https://apnews.com/article/61deba5e59f9bc5fac1800a660591c35?utm_source=chatgpt.com)
+* [AP News](https://apnews.com/article/4f032763731802d4b625d39e3a1bd1cc?utm_source=chatgpt.com)
 
 ---
 
-## 10.  Summary
+## 11.  Summary
 
-A blockchain-based budget ledger for the Philippines—built to restore trust, empower oversight, and ensure fiscal accountability. Citizens, auditors, and departments alike gain a secure, transparent, and auditable system—**so every peso, every peso counts**.
+A pioneering system for ensuring **ever peso—accounted, verifiable, unerasable**—the NBB MVP is a civic-first blockchain project aimed at restoring public trust, democratizing access, and anchoring fiscal integrity in technology.
 
 ---
 
-Let me know if you’d like me to generate a `.md` file directly or embed it into your repository, complete with badges and a license!
