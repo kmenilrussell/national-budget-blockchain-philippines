@@ -88,45 +88,50 @@ npm install
 npm run dev  # http://localhost:3000
 
 
+
+
+---
+
+Let me know if you'd like this zipped for direct download, versioned for GitHub, or enhanced with usage badges or images!
+::contentReference[oaicite:1]{index=1}
+
 6. Usage Overview
 
-Dashboard: Live view of blockchain health, transactions, and validator status.
+Dashboard: View blockchain health, recent transactions, and validator rotation live.
 
-Management Tools: Department and transaction controls.
+Management Tools: Manage agency budgets and transaction workflows.
 
-Explorer: Merkle-proof-enabled block browsing.
+Explorer: Browse blocks and validate transactions via Merkle proofs.
 
-OTC Module: Optional trading interface for DPAs.
+OTC Module: (Optional) Facilitates secure bilateral DPA trading.
 
-FOI & Audit Export: Download signed data for public scrutiny.
+FOI & Audit Export: Download signed CSV/JSONL for public transparency.
 
-Live Updates: Real-time feeds via WebSockets.
+Live Updates: Real-time UI updates via WebSockets.
 
 7. Deployment Roadmap
 
-Development: Docker Compose for local stacks (backend, frontend, DB, Vault, monitoring).
+Development: Use Docker Compose for backend, frontend, DB, Vault, and monitoring tools.
 
-Production: Kubernetes + Helm, managed Postgres, Vault, HTTPS (TLS with PNPKI certs).
+Production: Deploy via Kubernetes + Helm, utilize managed Postgres and Vault, and serve with HTTPS using PNPKI or equivalent PKI infrastructure.
 
 8. Governance & Compliance
 
-PNPKI for validator authentication and secure transport.
+PNPKI for validator and transport-level authentication.
 
-Tamper-proof Logs: Hash-chained audit entries anchored on-chain.
+Tamper-proof Logs: Audit entries chained by hash and anchored on-chain.
 
-Selective Privacy: Public transparency with auditor access via zero-knowledge proofs.
-
-Policy Alignment: Built for FOI compliance and integration with COA, DBM, PhilGEPS, and other oversight bodies.
+Selective Privacy: Publicly transparent with auditor-level access via ZK proofs.
 
 9. Next Milestones
 
-Optimize zero-knowledge proof generation and verification for performance.
+Optimize ZK Proofs: Improve performance and batching.
 
-Integrate with national systems like PhilGEPS and DBM workflows.
+System Integrations: Hook into PhilGEPS, DBM workflows.
 
-Pursue third-party audits and COA validation.
+Security Audits: Engage external auditors and COA for validation.
 
-Launch the public portal and community engagement programs (e.g., civic tech hackathons).
+Public Launch: Deploy citizen-facing portal and host civic hackathons.
 
 10. Related News & Context
 
@@ -141,4 +146,4 @@ AP News
 
 11. Summary
 
-A pioneering system ensuring every peso—accounted, verifiable, immutable. The NBB MVP is a civic-first blockchain initiative designed to restore public trust, enable citizen oversight, and embed fiscal integrity through technology.
+A pioneering civic-tech initiative—designed so that every peso is accounted for, verifiable, and immutable. The NBB MVP aims to restore public trust, enable citizen oversight, and deliver transparent fiscal governance powered by blockchain.
