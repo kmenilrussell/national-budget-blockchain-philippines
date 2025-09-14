@@ -200,6 +200,4 @@ cd national-budget-blockchain-philippines-main
 - **`Address already in use` error in Kubernetes**:
   - **Fix**: This often means another service is using the same `NodePort`. Use a different port or use a `ClusterIP` service with an Ingress controller.
 
----
 
-This revised version is now technically accurate, better structured, and ready for use. You can copy and paste this with confidence.
